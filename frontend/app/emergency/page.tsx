@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { api } from '@/lib/api';
+import { api } from '../../lib/api';
 const types = ['accident', 'fire', 'medical', 'pregnancy', 'violence'];
 export default function EmergencyPage() {
   const [form, setForm] = useState({ emergency_type: 'accident', description: '', latitude: '', longitude: '' });
