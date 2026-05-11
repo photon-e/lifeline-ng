@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { wsUrl } from '@/lib/api';
+import { wsUrl } from '../../lib/api';
 export default function ResponderPage() {
   const [alerts, setAlerts] = useState<any[]>([]);
   useEffect(()=>{ const ws = new WebSocket(wsUrl); ws.onmessage = (e)=> setAlerts((p)=>[JSON.parse(e.data), ...p]); return ()=>ws.close();},[]);
