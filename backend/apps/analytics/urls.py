@@ -1,0 +1,3 @@
+from django.urls import path
+from .views import AdminAnalyticsView
+urlpatterns = [path('admin/', AdminAnalyticsView.as_view())]
