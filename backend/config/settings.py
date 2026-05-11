@@ -53,25 +53,16 @@ TEMPLATES = [{
 WSGI_APPLICATION = 'config.wsgi.application'
 ASGI_APPLICATION = 'config.asgi.application'
 
-DB_ENGINE = os.getenv('DB_ENGINE', 'sqlite').lower()
-if DB_ENGINE == 'postgres':
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': os.getenv('POSTGRES_DB', 'lifeline'),
-            'USER': os.getenv('POSTGRES_USER', 'lifeline'),
-            'PASSWORD': os.getenv('POSTGRES_PASSWORD', 'lifeline'),
-            'HOST': os.getenv('POSTGRES_HOST', 'localhost'),
-            'PORT': os.getenv('POSTGRES_PORT', '5432'),
-        }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('POSTGRES_DB', 'lifeline'),
+        'USER': os.getenv('POSTGRES_USER', 'lifeline'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD', 'lifeline'),
+        'HOST': os.getenv('POSTGRES_HOST', 'localhost'),
+        'PORT': os.getenv('POSTGRES_PORT', '5432'),
     }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.getenv('SQLITE_PATH', BASE_DIR / 'db.sqlite3'),
-        }
-    }
+}
 
 AUTH_USER_MODEL = 'accounts.User'
 

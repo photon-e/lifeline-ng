@@ -19,16 +19,13 @@ Modern MVP for Nigeria-focused emergency reporting and responder dispatch.
 
 ## Quick start
 1. `cp .env.example .env`
-2. Choose DB mode:
-   - Default local mode uses SQLite (no PostgreSQL needed).
-   - For PostgreSQL, set `DB_ENGINE=postgres` and ensure Postgres is running on configured host/port.
-3. Backend:
+2. Backend:
    - `cd backend`
    - `python -m venv .venv && source .venv/bin/activate`
    - `pip install -r requirements.txt`
    - `python manage.py migrate`
    - `python manage.py runserver`
-4. Frontend:
+3. Frontend:
    - `cd frontend`
    - `npm install`
    - `npm run dev`
