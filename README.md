@@ -5,7 +5,7 @@ Modern MVP for Nigeria-focused emergency reporting and responder dispatch.
 ## Architecture
 - **Frontend**: Next.js + React + Tailwind (mobile-first)
 - **Backend**: Django + DRF + JWT
-- **DB**: SQLite (default local) or PostgreSQL (production)
+- **DB**: PostgreSQL
 - **Realtime**: Django Channels WebSockets
 
 ## Core models
@@ -19,16 +19,13 @@ Modern MVP for Nigeria-focused emergency reporting and responder dispatch.
 
 ## Quick start
 1. `cp .env.example .env`
-2. Choose DB mode:
-   - Default local mode uses SQLite (no PostgreSQL needed).
-   - For PostgreSQL, set `DB_ENGINE=postgres` and ensure Postgres is running on configured host/port.
-3. Backend:
+2. Backend:
    - `cd backend`
    - `python -m venv .venv && source .venv/bin/activate`
    - `pip install -r requirements.txt`
    - `python manage.py migrate`
    - `python manage.py runserver`
-4. Frontend:
+3. Frontend:
    - `cd frontend`
    - `npm install`
    - `npm run dev`
@@ -46,10 +43,3 @@ Use `scripts/seed_data.py` inside Django shell.
 Fleet management, AI dispatching, SMS support, hospital integrations, chat/video, rewards.
 
 See `docs/API.md` for endpoint documentation.
-
-
-## Troubleshooting database errors
-If you still see `connection refused` on `localhost:5432`, your environment is still using Postgres.
-- Confirm `.env` has `DB_ENGINE=sqlite` for local development.
-- Restart your terminal/process after changing `.env`.
-- Run `python manage.py migrate` again from `backend/`.
